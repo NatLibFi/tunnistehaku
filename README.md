@@ -2,7 +2,7 @@
 
 Pääasiassa Melinda-kirjastojen henkilökunnalle suunnattu Google Chrome-selaimen laajennos, jolla voi helposti ja nopeasti hakea tietueita Melindan näyttöluettelosta tietuenumeron perusteella. Tietueita voi hakea myös useita samalla haulla. Tällöin haettavien tietueiden tunnisteet syötetään hakukenttään pilkulla tai välilyönnillä erotettuna.
 
-Laajennoksella voi hakea tehdä hakuja myös MARC 21 -formaatin suomennoksesta, MARC 21 -formaatin englanninkielisestä kokotekstistä Kongressin kirjaston sivuilta tai MARC 21 BIB -sovellusohjeesta Melinda-kirjastoille.
+Laajennoksella voi hakea tehdä hakuja myös MARC 21 -formaatin suomennoksesta ja ruotsinnoksesta, MARC 21 -formaatin englanninkielisestä kokotekstistä Kongressin kirjaston sivuilta tai MARC 21 BIB -sovellusohjeesta Melinda-kirjastoille.
 
 Laajennoksen voi asentaa Chrome Web Store -portaalin kautta: https://chrome.google.com/webstore/detail/tunnistehaku/oehlgnbpoibkcnhafbcpcikifcpgngmf
 
@@ -12,6 +12,6 @@ A Chrome addon designed mainly for use in Finnish libraries for querying the OPA
 
 ## License and copyright
 
-Copyright (c) 2015-2016 **University Of Helsinki (The National Library Of Finland)**
+Copyright (c) 2015-2020 **University Of Helsinki (The National Library Of Finland)**
 
 This project's source code is licensed under the terms of **GNU Affero General Public License Version 3**.
