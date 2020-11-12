@@ -5,6 +5,8 @@ function parseMARC21Url(field, type, data) {
   const urlInfo = data.filter(line => Number(field) >= line.firstCode && Number(field) <= line.lastCode).pop();
   if (type === "marc21") {
     return "http://www.kansalliskirjasto.fi/extra/marc21/bib/"+ urlInfo.formatField + ".htm#" + field;
+  } else if (type === "marc21svenska") {
+    return "https://wiki.helsinki.fi/pages/viewpage.action?pageId=" + urlInfo.svenskPageId;
   } else if (type === "sovellusohjeisbd") {
     return "https://wiki.helsinki.fi/pages/viewpage.action?pageId=" + urlInfo.pageId + (urlInfo.anchor ? urlInfo.anchor + field : "");
   } else if (type === "sovellusohjerda") {
@@ -14,25 +16,26 @@ function parseMARC21Url(field, type, data) {
 
 function getUrlData() {
   return [
-	  {"formatField": "000", "firstCode": 0, "lastCode": 0, "pageId": "28195289", "rdaPageId": "51282124", "anchor": false},
-      {"formatField": "001-006", "firstCode": 1, "lastCode": 6, "pageId": "28195301", "rdaPageId": "51282125", "anchor": false},
-      {"formatField": "007", "firstCode": 7, "lastCode": 7, "pageId": "28195745", "rdaPageId": "51282132", "anchor": false},
-      {"formatField": "008", "firstCode": 8, "lastCode": 8, "pageId": "28195750", "rdaPageId": "51282049", "anchor": false},
-      {"formatField": "01X-04X", "firstCode": 10, "lastCode": 49, "pageId": "28195782", "rdaPageId": "51282032", "anchor": "#id-6.Numero-jakoodikentät(01X-04X)-"},
-      {"formatField": "05X-08X", "firstCode": 50, "lastCode": 89, "pageId": "28201092", "rdaPageId": "51282131", "anchor": false},
-      {"formatField": "1XX", "firstCode": 100, "lastCode": 199, "pageId": "28201245", "rdaPageId": "51282046", "anchor": "#id-8.Pääkirjauskentät(1XX)-"},
-      {"formatField": "20X-24X", "firstCode": 200, "lastCode": 249, "pageId": "28201255", "rdaPageId": "51282044", "anchor": "#id-9.Nimeke-janimekkeeseenliittyvätkentät(20X-24X)-"},
-      {"formatField": "250-270", "firstCode": 250, "lastCode": 270, "pageId": "28201803", "rdaPageId": "51282130", "anchor": "#id-10.Julkaisu-jajakelutietojenjne.kentät(250-270)-"},
-      {"formatField": "3XX", "firstCode": 300, "lastCode": 399, "pageId": "28201880", "rdaPageId": "51282054", "anchor": "#id-11.Fyysisenkuvailunjne.kentät(3XX)-"},
-      {"formatField": "4XX", "firstCode": 400, "lastCode": 499, "pageId": "28202275", "rdaPageId": "51282126", "anchor": false},
-      {"formatField": "50X-53X", "firstCode": 500, "lastCode": 535, "pageId": "28202285", "rdaPageId": "51282051", "anchor": "#id-13.Huomautuskentät,osa1(50X-53X)-"},
-      {"formatField": "53X-58X", "firstCode": 536, "lastCode": 599, "pageId": "28202292", "rdaPageId": "51282059", "anchor": "#id-14.Huomautuskentät,osa2(53X-59X)-"},
-      {"formatField": "6XX", "firstCode": 600, "lastCode": 699, "pageId": "28202299", "rdaPageId": "51282133", "anchor": "#id-15.Asiasanakentät(6XX)-"},
-      {"formatField": "70X-75X", "firstCode": 700, "lastCode": 759, "pageId": "28202301", "rdaPageId": "51282134", "anchor": "#id-16.Lisäkirjauskentät(70X-75X)-"},
-      {"formatField": "76X-78X", "firstCode": 760, "lastCode": 799, "pageId": "28202303", "rdaPageId": "51282062", "anchor": "#id-17.Linkkikentät(76X-79X)-"},
-      {"formatField": "80X-830", "firstCode": 800, "lastCode": 830, "pageId": "28202305", "rdaPageId": "51282135", "anchor": "#id-18.Sarjalisäkirjauskentät(80X-830)-"},
-      {"formatField": "841-88X", "firstCode": 841, "lastCode": 899, "pageId": "28202307", "rdaPageId": "51282070", "anchor": "#id-19.Varasto-jasijainti-ym.tietojenkentät(841-88X)-"},
-      {"formatField": "9XX", "firstCode": 900, "lastCode": 999, "pageId": "28203469", "rdaPageId": "51282136", "anchor": "#id-20.Suomalaisetkentät(9XX)-"}
+    // NB! svenskPageId 76269897 is a placeholder...
+    {"formatField": "000", "firstCode": 0, "lastCode": 0, "pageId": "28195289", "rdaPageId": "51282124", "svenskPageId": "76270841", "anchor": false},
+    {"formatField": "001-006", "firstCode": 1, "lastCode": 6, "pageId": "28195301", "rdaPageId": "51282125", "svenskPageId": "76269987", "anchor": false},
+    {"formatField": "007", "firstCode": 7, "lastCode": 7, "pageId": "28195745", "rdaPageId": "51282132", "svenskPageId": "76270038", "anchor": false},
+    {"formatField": "008", "firstCode": 8, "lastCode": 8, "pageId": "28195750", "rdaPageId": "51282049", "svenskPageId": "76270091", "anchor": false},
+    {"formatField": "01X-04X", "firstCode": 10, "lastCode": 49, "pageId": "28195782", "rdaPageId": "51282032", "svenskPageId": "76270498", "anchor": "#id-6.Numero-jakoodikentät(01X-04X)-"},
+    {"formatField": "05X-08X", "firstCode": 50, "lastCode": 89, "pageId": "28201092", "rdaPageId": "51282131", "svenskPageId": "76270851", "anchor": false},
+    {"formatField": "1XX", "firstCode": 100, "lastCode": 199, "pageId": "28201245", "rdaPageId": "51282046", "svenskPageId": "76270854", "anchor": "#id-8.Pääkirjauskentät(1XX)-"},
+    {"formatField": "20X-24X", "firstCode": 200, "lastCode": 249, "pageId": "28201255", "rdaPageId": "51282044", "svenskPageId": "76271039", "anchor": "#id-9.Nimeke-janimekkeeseenliittyvätkentät(20X-24X)-"},
+    {"formatField": "250-270", "firstCode": 250, "lastCode": 270, "pageId": "28201803", "rdaPageId": "51282130", "svenskPageId": "76271041", "anchor": "#id-10.Julkaisu-jajakelutietojenjne.kentät(250-270)-"},
+    {"formatField": "3XX", "firstCode": 300, "lastCode": 399, "pageId": "28201880", "rdaPageId": "51282054", "svenskPageId": "76271044", "anchor": "#id-11.Fyysisenkuvailunjne.kentät(3XX)-"},
+    {"formatField": "4XX", "firstCode": 400, "lastCode": 499, "pageId": "28202275", "rdaPageId": "51282126", "svenskPageId": "76271046", "anchor": false},
+    {"formatField": "50X-53X", "firstCode": 500, "lastCode": 535, "pageId": "28202285", "rdaPageId": "51282051", "svenskPageId": "76271050", "anchor": "#id-13.Huomautuskentät,osa1(50X-53X)-"},
+    {"formatField": "53X-58X", "firstCode": 536, "lastCode": 599, "pageId": "28202292", "rdaPageId": "51282059", "svenskPageId": "76271054", "anchor": "#id-14.Huomautuskentät,osa2(53X-59X)-"},
+    {"formatField": "6XX", "firstCode": 600, "lastCode": 699, "pageId": "28202299", "rdaPageId": "51282133", "svenskPageId": "76271058", "anchor": "#id-15.Asiasanakentät(6XX)-"},
+    {"formatField": "70X-75X", "firstCode": 700, "lastCode": 759, "pageId": "28202301", "rdaPageId": "51282134", "svenskPageId": "76271060", "anchor": "#id-16.Lisäkirjauskentät(70X-75X)-"},
+    {"formatField": "76X-78X", "firstCode": 760, "lastCode": 799, "pageId": "28202303", "rdaPageId": "51282062", "svenskPageId": "76271062", "anchor": "#id-17.Linkkikentät(76X-79X)-"},
+    {"formatField": "80X-830", "firstCode": 800, "lastCode": 830, "pageId": "28202305", "rdaPageId": "51282135", "svenskPageId": "76271065", "anchor": "#id-18.Sarjalisäkirjauskentät(80X-830)-"}, // TODO
+    {"formatField": "841-88X", "firstCode": 841, "lastCode": 899, "pageId": "28202307", "rdaPageId": "51282070", "svenskPageId": "76271069", "anchor": "#id-19.Varasto-jasijainti-ym.tietojenkentät(841-88X)-"},
+    {"formatField": "9XX", "firstCode": 900, "lastCode": 999, "pageId": "28203469", "rdaPageId": "51282136", "svenskPageId": "76271071", "anchor": "#id-20.Suomalaisetkentät(9XX)-"}
   ];
 }
 
@@ -43,6 +46,10 @@ function processInput(data) {
       if (data.selection === "MARC 21") {
         splitInput(data.value)
           .map(field => parseMARC21Url(field, "marc21", urlData))
+          .map(redirect);
+      } else if (data.selection === "MARC 21 på svenska") {
+        splitInput(data.value)
+          .map(field => parseMARC21Url(field, "marc21svenska", urlData))
           .map(redirect);
       } else if (data.selection === "MARC 21 Full (LOC)") {
         splitInput(data.value)

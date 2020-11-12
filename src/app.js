@@ -44,6 +44,7 @@ const databases = ["Melinda",
                    "Åbo Akademi"];
 
 const instructions = ["MARC 21",
+                      "MARC 21 på svenska",
                       "MARC 21 Full (LOC)",
                       "MARC 21 sovellusohje (RDA)",
                       "MARC 21 sovellusohje (ISBD)"];
