@@ -3,7 +3,7 @@
 
   "name": "Tunnistehaku",
   "description": "Haku Melindasta tai Finna-kirjastoista tietuetunnuksella tai MARC21-formaatista / sovellusohjeesta kenttäkoodilla",
-  "version": "1.0.0",
+  "version": "1.0.3",
 
   "browser_action": {
     "default_icon": "book.png",
