@@ -60,7 +60,7 @@ function processInput(data) {
     } else {
       if (data.selection === "Melinda") {
         parseMelindaURL(data.value).map(redirect);
-      } else if (data.selection === "Fennica") {
+      } else if (0 && data.selection === "Fennica") { // Fennica is dead, Fikka 
         parseFennicaURL(data.value).map(redirect);
 	  } else {
         parseFinnaURL(data.selection, data.value).map(redirect);
@@ -73,40 +73,41 @@ function processInput(data) {
 
 function getFinnaData(database) {
   const data = {
-    "Aalto-yliopisto": {"tag": "aalto", "db": "alli"},
-    "Helka": {"tag": "helka", "db": "helka"},
-    "HAMK": {"tag": "hamk", "db": "vanaicat"},
-    "Itä-Suomen yliopisto": {"tag": "uef", "db": "josku"},
-    "Jyväskylän yliopisto": {"tag": "jyu", "db": "jykdok"},
-    "Jyväskylän ammattikorkeakoulu": {"tag": "janet", "db": "janet"},
-    "Lapin korkeakoulukirjasto": {"tag": "luc", "db": "vaari"},
-    "Lappeenrannan tiedekirjasto": {"tag": "wilma", "db": "wilma"},
-    "Laurea-ammattikorkeakoulu": {"tag": "laurea", "db": "laurus"},
-    "Kaakkois-Suomen amk": {"tag": "kaakkuri", "db": "kaakkuri"},
-    "Kajaanin ammattikorkeakoulu": {"tag": "kamk", "db": "kajakki"},
-    "Karelia-ammattikorkeakoulu": {"tag": "karelia", "db": "joel"},
-    "Oulun yliopisto": {"tag": "oula", "db": "oula"},
-    "Hanken": {"tag": "hanken", "db": "hanna"},
-    "Taideyliopisto": {"tag": "uniarts", "db": "arsca"},
-    "Tampereen yliopisto": {"tag": "tamcat", "db": "tamcat"},
-    "Tritonia": {"tag": "tritonia", "db": "tria"},
-    "Turun yliopisto": {"tag": "utu", "db": "volter"},
-    "Åbo Akademi": {"tag": "abo", "db": "alma"},
-    "Arcada": {"tag": "arcada", "db": "arken"},
-    "Centria": {"tag": "centria", "db": "colibri"},
-    "DIAK": {"tag": "diak", "db": "diana"},
-    "Haaga-Helia": {"tag": "haagahelia", "db": "haltia"},
-    "Humak": {"tag": "humak", "db": "hurma"},
-    "Metropolia": {"tag": "metropolia", "db": "metcat"},
-    "OAMK": {"tag": "oamk", "db": "leevi"},
-    "LAMK": {"tag": "masto", "db": "masto"},
-    "SAMK": {"tag": "samk", "db": "tyrni"},
-    "Savonia": {"tag": "savonia", "db": "aapeli"},
-    "SeAMK": {"tag": "seamk", "db": "plari"},
-    "TAMK": {"tag": "tamk", "db": "oma"},
-    "Turku AMK": {"tag": "tuamk", "db": "aura"},
-    "Turun kaupunginkirjasto": {"tag": "vaski", "db": "vaski"}
-    };
+    'Aalto-yliopisto': {'tag': 'aalto', 'db': 'alli'}, // OK 20201113, will break 2021?
+    'Arcada': {'tag': 'arcada', 'db': 'arken'}, // 20201113 OK
+    'Centria': {'tag': 'centria', 'db': 'colibri'}, // 20201113 OK
+    'DIAK': {'tag': 'diak', 'db': 'diana'}, // 20201113 OK
+    'Haaga-Helia': {'tag': 'haagahelia', 'db': '3amk'}, // 20201113 OK
+    'Fikka': {'tag': 'kansalliskirjasto', 'db': 'fikka'}, // OK 20201113
+    // 'Helka': {'tag': 'helka', 'db': 'helka'}, // Alma-only
+    'HAMK': {'tag': 'hamk', 'db': 'vanaicat'}, // OK 20201113
+    'Hanken': {'tag': 'hanken', 'db': 'hanna'}, // OK 20201113
+    'Humak': {'tag': 'humak', 'db': 'hurma'}, // OK 20201113
+    // 'Itä-Suomen yliopisto': {'tag': 'uef', 'db': 'josku'}, // moved to Alma-Primo
+    'Jyväskylän ammattikorkeakoulu': {'tag': 'janet', 'db': 'jamk'}, // Alma
+    'Jyväskylän yliopisto': {'tag': 'jyu', 'db': 'jykdok'}, // OK 20201113
+    'Kaakkois-Suomen amk': {'tag': 'kaakkuri', 'db': 'kaakkuri'}, // OK 20201113
+    'Kajaanin ammattikorkeakoulu': {'tag': 'kamk', 'db': 'kamk'}, // Alma backend 20201113
+    'Karelia-ammattikorkeakoulu': {'tag': 'karelia', 'db': 'karelia'}, // Alma backend 20201113
+    'Lapin korkeakoulukirjasto': {'tag': 'luc', 'db': 'luc'}, // Alma 20201113
+    //'LAMK': {'tag': 'masto', 'db': 'masto'},
+    //'Lappeenrannan tiedekirjasto': {'tag': 'wilma', 'db': 'wilma'}, // Alma-only primo.lut.fi
+    'Laurea-ammattikorkeakoulu': {'tag': 'laurea', 'db': '3amk'}, // OK 20201113
+    'Metropolia': {'tag': 'metropolia', 'db': '3amk'},
+    'OAMK': {'tag': 'oy', 'db': 'oy'}, // ei toimi enää, voiko korjata?
+    'Oulun yliopisto': {'tag': 'oula', 'db': 'oy'}, // 20201113 alma backend
+    'SAMK': {'tag': 'samk', 'db': 'samk'}, // Alma20201113
+    'Savonia': {'tag': 'savonia', 'db': 'savonia'}, // Alma 20201113
+    'SeAMK': {'tag': 'seamk', 'db': 'seamk'}, // Alma 20201113
+    'Taideyliopisto': {'tag': 'uniarts', 'db': 'uniarts'}, // 20201113 alma backend
+    // 'TAMK': {'tag': 'tamk', 'db': 'oma'}, // moved to Andor, though might be fixable
+    // 'Tampereen yliopisto': {'tag': 'tamcat', 'db': 'tamcat'}, 
+    'Tritonia': {'tag': 'tritonia', 'db': 'tria'}, // OK 20201113
+    'Turku AMK': {'tag': 'tuamk', 'db': 'turkuamk'}, // Alma 20201113
+    'Turun kaupunginkirjasto': {'tag': 'vaski', 'db': 'vaski'}, // OK 20201012
+    // 'Turun yliopisto': {'tag': 'utu', 'db': 'volter'}, // 20201113 utuvolter.fi
+    'Åbo Akademi': {'tag': 'abo', 'db': 'abo'} // 20201113 Alma backend
+  };
   return data[database];
 }
 
@@ -118,7 +119,10 @@ const parseFennicaURL = (query) => splitInput(query).map(id => `http://fennica.l
 
 function parseFinnaURL(database, query) {
   const dbdata = getFinnaData(database);
-  return splitInput(query).map(id => `https://${dbdata.tag}.finna.fi/Record/${dbdata.db}.${id.trim()}`);
+  var url = splitInput(query).map(id => `https://${dbdata.tag}.finna.fi/Record/${dbdata.db}.${id.trim()}`);
+  // Ugly hack for 
+  //return url.replace('oy.finna.fi/Record', 'oy.finna.fi/oamk/Record');
+  return url;
 }
 
 const parseLOCMARCUrl = (field) => `http://www.loc.gov/marc/bibliographic/bd${parseMARCField(field)}.html`;
