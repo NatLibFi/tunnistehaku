@@ -2,15 +2,14 @@
   "manifest_version": 2,
 
   "name": "Tunnistehaku",
-  "description": "Haku Melindasta tai Finna-kirjastoista tietuetunnuksella tai MARC21-formaatista / sovellusohjeesta kenttäkoodilla",
-  "version": "1.0.3",
+  "description": "Haku Melindasta tai Finna-kirjastoista tietuetunnuksilla tai MARC21-formaatista / sovellusohjeesta kenttäkoodeilla",
+  "version": "1.0.5",
 
   "browser_action": {
     "default_icon": "book.png",
     "default_popup": "redirect.html"
   },
 
-  "permissions": ["tabs"],
   "author": "Tuomo Virolainen",
   "homepage_url": "https://github.com/NatLibFi/tunnistehaku"
 }
